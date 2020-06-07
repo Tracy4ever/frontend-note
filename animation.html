@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation——动态运动的圆</title>
+</head>
+<body>
+    <canvas id="canvas" class="canvas" width="600" height="300"></canvas>
+    <script>
+        window.requestAnimFrame =
+        window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        function(callback) {
+            window.setTimeout(callback, 1000 / 30);
+        };
+        var canvas = document.getElementById('canvas');
+        var context = canvas.getContext('2d');
+        var circle = {
+            x: 60,
+            y: 60,
+            radius: 30,
+            direction: 'right',
+            draw() {
+                context.beginPath();
+                context.arc(this.x,this.y,this.radius,2*Math.PI,false);
+                context.fillStyle = 'red';
+                // context.stroke();
+                context.fill();
+            },
+            move() {
+                /**
+                * 方法一
+                *  if (this.direction === 'right') {
+                *     if (this.x > 500) {
+                *         this.direction = 'left';
+                *         this.x -= 5;
+                *     } else {
+                *         this.x += 5;
+                *     }
+                * } else {
+                *     if (this.x >= 60) {
+                *         this.x -= 5;
+                *     } else {
+                *         this.direction = 'right';
+                *         this.x += 5;
+                *     }
+                * }
+                */
+                //方法二
+                if (this.x < 60) {
+                    this.x += 5;
+                } else if (this.x > 500) {
+                    this.x -= 5;
+                } else if (this.x === 60) {
+                    this.x += 5;
+                    this.direction = 'right';
+                } else if (this.x === 500) {
+                    this.x -= 5;
+                    this.direction = 'left';
+                } else {
+                    // 在60<=x<=500范围内可能+5可能-5
+                    if (this.direction === 'right') {
+                        this.x += 5;
+                    } else {
+                        this.x -= 5;
+                    }
+                }
+            },
+        };
+        function animate() {
+            circle.move();
+            context.clearRect(0,0,canvas.width,canvas.height);
+            circle.draw();
+            requestAnimationFrame(animate);
+        }
+        circle.draw();
+        animate();
+    </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        body {
+            width: 100%;
+            height: 100%;
+        }
+        .title {
+            background: #2488eb;
+        }
+        .content {
+            max-width: 1000px;
+            /* width: 100%; */
+            text-align: center;
+            background: #c1c1c1;
+            
+        }
+        p {
+            width: 100%;
+            word-wrap: break-word;
+        }
+        img {
+            position: relative;
+            width: 100px;
+            max-width: 100%;
+        }
+        .flex-wrap {
+            width: 100%;
+            height: 200px;
+            display: flex;
+        }
+        .flex-wrap > .index {
+            width: 20%;
+            height: 200px;
+        }
+        .index1 {
+            background: red;
+        }
+        .index2 {
+            background: yellow;
+        }
+        .index3 {
+            background: blue;
+        }
+        .index4 {
+            background: green;
+        }
+        .index5 {
+            background: pink;
+        }
+        @media screen and (min-width: 800px) {
+            .index1 {
+                background: red;
+                order: 5;
+            }
+            .index2 {
+                background: yellow;
+                order: 4;
+            }
+            .index3 {
+                background: blue;
+                order: 3;
+            }
+            .index4 {
+                background: green;
+                order: 2;
+            }
+            .index5 {
+                background: pink;
+                order: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="title">测试响应式布局</div>
+    <div class="content">
+        <p>testtttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt</p>
+    </div>
+    <img src="C:\Users\lenovo\Pictures\pic\0.jpg" alt="test-pic">
+    <div class="flex-wrap">
+        <div class="index index1"></div>
+        <div class="index index2"></div>
+        <div class="index index3"></div>
+        <div class="index index4"></div>
+        <div class="index index5"></div>
+    </div>
+</body>
+</html>
