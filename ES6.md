@@ -182,7 +182,7 @@ console.log(obj[key]);
 * `.assign()`用于合并多个对象
 	* 更改`第一个对象`，可用空{}避免
 * `.values()`,`.entries()`分别用于遍历值、键值对
-	* .keys获取键值的数组，键值是字符串
+	* .keys获取键值的 数组，键值是字符串
 	* .values获取值的数组
 	* .entries获取键值对[[key1,value1],[key2,value2]]
 * `.fromEntries()`是`.entries()`的逆动作
@@ -259,6 +259,8 @@ class Cat extends Animal {
 		var newArr = Array.from(set);
 	```
 * 比Map少了set和get方法，多了add方法
+
+### 10.3 weakSet & weakMap
 
 ## 11 新的基本数据类型——Symbol
 * 互不相同的“字符串”，可作为属性名
@@ -387,14 +389,14 @@ doSomething().then(function(){
 	* then中的function没有return语句，相当于返回undefined
 	* then中传入同步函数，跟异步一样会用Promise.resolve包裹成promise再返回
 	*/
-	doSomethingElse();//undefined
-}).then(log);//
+	doSomethingElse();
+}).then(log);//undefined
 
 doSomething().then(doSomethingElse())
-/ **
+/**
 * then中参数不是函数，则不跟在then调用链上，被忽略
 * 传的是doSomethingElse执行结果
-* /
+*/
 .then(log);//'something'
 
 doSomething().then(doSomethingElse).then(log);//'something else'
@@ -441,7 +443,7 @@ f(5).then(log);
 * 上述两者区别：
 	* .then(()=>{},(err)=>{})无法捕捉到成功回调函数报的错
 	* .catch((err)=>{})放最后可以捕捉到成功回调函数报的错
-	* .catch()放最后可以兜底前面所有then的调用栈中报的错
+	* .catch()放最后可以兜底前面所有then的链式调用栈中报的错
 * 捕捉同步过程中的错误
 ```javascript
 function add(x) {
@@ -455,4 +457,9 @@ function f(x) {//把add也放到异步过程中去捕获
 }
 f(10).then(log,log)
 ```
+
+### 14.5 Promise实现并行过程
+* Promise.all()执行三个函数，耗时为耗时最长的函数的时间，返回包含三个函数的返回值的数组,分别对应三个函数的位置
+* Promise.race()`赛跑`，等待时长最短的函数，并返回该函数的返回值的闭包
+* 参数为`数组`
 

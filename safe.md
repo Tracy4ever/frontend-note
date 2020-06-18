@@ -80,7 +80,7 @@ document.cookie = encodeURIComponent('name') + '=' + encodeURIComponent('value')
 * 永远不要相信用户的输入
     * `白名单`:输入格式判断，需符合的格式和要求：
     * `过滤危险字符`: 
-        1. 去除<script>、javascript、onclick
+        1. 去除script、javascript、onclick
         2. `黑名单`:转义特殊字符<>&\"'，使其变成文本
         ```javascript
         //转义HTML特殊字符

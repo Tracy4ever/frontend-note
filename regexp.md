@@ -32,12 +32,12 @@ http(s)://ke.qq.com/....
     * 引用
     ```javascript
     //\s表示空格
-        var reg3 = /{jero}\slove\s{coding|girl}/.exec('jero love girl');
+        var reg3 = /(jero)\slove\s(coding|girl)/.exec('jero love girl');
         var reg = reg3[1];
         var reg2 = RegExp.$1;//RegExp对象存储最近一次的捕获
     ```
     * 反向引用
-        * 正则里面引用本正则的分组 /<div>.*</div>/ = /<(div)></\1>/
+        * 正则里面引用本正则的分组 /<div>.*</div>/ = /<(div)>.*<\/\1>/
 * `非捕获型分组` (?:coding|girl)
 
 ## 贪婪匹配和惰性匹配
@@ -50,11 +50,24 @@ var reg = /<span>.+?</span>/
 reg.test(str);//['<span>daklfjlkasdf</span>']
 ```
 
-## 正向前瞻和负向前瞻
+## 正向前瞻和负向前瞻(匹配位置)
 * `正向前瞻`：(?=)
 * `负向前瞻`：(?!)
 ```javascript
 var reg = '/\b(\w+)(?=\.jpg)\b/g';
 var str = 'img.jpg test.md hello.jpg';
 str.match(reg);//[img,hello]
+```
+* 匹配位置的还有\b,^,$
+
+## String对象能使用正则的方法
+* `replace(reg,待替换字符串)`：一个正则匹配多种情况
+* `match()`: match方法匹配所有满足的字符，RegExp.exec()只匹配第一个
+* `split(reg)`：
+* `search(reg)`:返回第一个index
+
+## 例题
+* 给数字10000变成10,000
+```javascript
+var reg = /(?=((?!\b)\d{3})+$)/g
 ```

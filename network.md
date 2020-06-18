@@ -16,6 +16,9 @@
 
 # 5. HTTP(HyperText Transfer Protocol)超文本传输协议
 * 一种用于分布式、协作式和超媒体信息系统的应用层协议
+* 特点
+    1. `无连接`：一次只处理一个http请求
+    2. `无状态`：不能记住上次请求的信息，需重传,不能识别登陆态
 ## 5.1 HTTP的报文结构(request & response)
 ![network-http](images/network-http.png)
 ## 5.2 HTTP状态码
