@@ -159,3 +159,42 @@ function debounce(func,time) {
   justify-self: center;
 }
 ```
+
+# 9. for in 和for of
+* for in更适合遍历对象
+* for in遍历的是数组的`索引（即键名）`，而for of遍历的是数组`元素值`。
+* for of遍历的只是数组内的元素，而`不包括数组的原型属性method和索引name`
+* for in 可以遍历到myObject的原型方法method,如果不想遍历原型方法和属性的话，可以在循环内部判断一下,hasOwnPropery方法可以判断某属性是否是该对象的实例属性
+* 遍历map对象适合用解构
+```javascript
+for(var [key,value] of phoneBookMap){}
+```
+
+# 10. 字符串和操作符
+* 字符串执行+操作则字符串拼接
+* 字符串执行-操作则数值计算
+
+# 11. css设置不能点击
+* 不能点击图标
+cursor：not-allowed
+* 显示点击图标，但不能触发点击事件
+pointer-events： none
+
+# 12.特殊
+* typeof null//object
+* typeof function//function
+* typeof []//object
+* NaN === NaN //false
+
+# 13. 深拷贝 & 浅拷贝
+## 浅拷贝
+1. 场景：Object.assign
+## 深拷贝
+1. JSON.parse(JSON.stringify())
+* 忽略一些值
+  1. undefined
+  2. symbol 
+  3. 循环引用的对象
+  4. function函数
+  5. new Date()
+  6. 正则

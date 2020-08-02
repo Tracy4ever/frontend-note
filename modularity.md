@@ -34,6 +34,18 @@
             }
         })()
         ```
+        * `标准实现`
+        ```javascript
+            (function(window) {
+                var name = 'Susan';
+                var sex = '女孩';
+                function tell() {
+                    console.log('我的名字',name);
+                    console.log('我的性别',sex);
+                }
+                window.Susan = {tell}
+            })(window)
+        ```
         * `优点`： 
             1. 创建私有作用域，避免变量冲突
             2. 使用IIFE实现模块，`包裹模块代码，暴露模块属性和接口，封装私有变量`
@@ -59,6 +71,8 @@
         module.exports = {
             area: area
         }
+        //另外一种暴露接口的方法
+        //exports.area = function(r) {}
         //circle.js
         var math = require(./math.js);
         var radius = 10;
@@ -70,7 +84,7 @@
             define(id?,dependecies?,factory)
             * `id`: 模块标识，不传则是加载的脚本文件的名字
             * `dependencies`: 依赖的模块数组，默认(不输入则为)['require','exports','module']
-            * `factory`: 模块初始化要执行的函数或者对象
+            * `factory`: 模块初始化要执行的函数或者对象，对象则当前模块的导出值，函数则return出去的是模块的接口、导出值
             ```javascript
             //moduleA.js
                 define('moduleA',function(require,exports,module) {

@@ -4,11 +4,11 @@
 * run-in box: css3 中才有， 这儿先不讲了。
 
 1. 触发BFC
-* body根元素
-* float的值不是none。
-* position的值不是static或者relative。
-* overflow的值不是visible。
-* display的值是inline-block、table-cell、flex、table-caption或者inline-flex。
+* 1. body根元素
+* 2. float的值不是none。
+* 3. position的值不是static或者relative。
+* 4. overflow的值不是visible。
+* 5. display的值是inline-block、table-cell、flex、table-caption或者inline-flex。
 
 2. BFC特点（作用）
     * 避免margin合并（塌陷，重合）

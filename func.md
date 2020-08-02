@@ -162,6 +162,13 @@ function createPerson(name) {
 * 将属性和方法赋值给this
 * 没有return语句
 * new操作符默认创建新对象，将this指向构造函数
+
+  new 关键字会进行如下的操作：
+  创建一个空的简单JavaScript对象（即{}）；
+  链接该对象（即设置该对象的构造函数）到另一个对象 ；
+  将步骤1新创建的对象作为this的上下文 ；
+  如果该函数没有返回对象，则返回this。
+ [参考](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/new)
 * 实例 instanceof 抽象构造函数返回布尔值 
 ```javascript
 function Bottle(name,price) {
@@ -431,7 +438,7 @@ console.log(arr);//[a,b,c]
   - param2为空则到数组结尾
   - param1 < param2 
   - param1和param2可以为负数，负数则为从尾部开始数第n个
-* concat(param)合并数组
+*  `concat(param)`合并数组
   - param：可以是数组或者数字，`数组则合并数组内的参数`
 * concat()、slice()不改变原数组,splice()改变原数组
 

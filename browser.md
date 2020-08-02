@@ -10,7 +10,7 @@
 * 语法解释（语法规则->扫描->形成DOM树）
 
 # 渲染过程
-* 边加载边解析边渲染
+* `边加载边解析边渲染`
 * DOM Tree和Render Tree
     * 一一对应
     * DOM Tree中display：none

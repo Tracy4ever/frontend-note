@@ -247,7 +247,7 @@ class Cat extends Animal {
 	* .size属性
 	* .clear()；//所有键清空
 	* .keys()；//获取键的迭代器
-	* .entries();
+	* .entries();//获取键值对
 	* .forEach(function(value,key,map){})
 ### 10.2 Set（集合）
 * `键与值相同的Map`
@@ -300,7 +300,7 @@ const a = new A();
 console.log(a);//{Symbol():1}
 a.getId();//1
 const keys = Object.keys(a);//[]
-console.log(JSON.stringigy(a));//{}
+console.log(JSON.stringify(a));//{}
 ```
 
 ## 12 元编程
@@ -462,4 +462,7 @@ f(10).then(log,log)
 * Promise.all()执行三个函数，耗时为耗时最长的函数的时间，返回包含三个函数的返回值的数组,分别对应三个函数的位置
 * Promise.race()`赛跑`，等待时长最短的函数，并返回该函数的返回值的闭包
 * 参数为`数组`
+
+### 14.6 Promise实行串行过程
+* async await
 
