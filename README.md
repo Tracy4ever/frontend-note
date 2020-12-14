@@ -15,4 +15,5 @@ README.md
 * [性能](./performance.md)
 * [正则](./regexp.md)
 * [安全](./safe.md)
+* ![测试图片](https://ssl-pubpic.51yund.com/1036248898.png)
 * 部分插图引自腾讯课堂
